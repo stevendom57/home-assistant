@@ -126,7 +126,6 @@ shopping_list:
 
 camera:
   - platform: mjpeg
-#    mjpeg_url: http://192.168.1.209:8081
     mjpeg_url: !secret living_room_camera_url
     name: Living Room
   - platform: mjpeg
@@ -216,15 +215,6 @@ media_player:
     name: Denon Avr
   - platform: cast
     host: 192.168.1.207
-  - platform: mpd
-    host: 192.168.1.207
-    name: Multi-Room Controller    
-  - platform: mpd
-    host: 192.168.1.139
-    name: Room 1   
-  - platform: mpd
-    host: 192.168.1.137
-    name: Room 2 
   - platform: cast
     
 zone:
