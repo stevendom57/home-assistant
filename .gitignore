@@ -19,3 +19,4 @@ tts/
 secrets.yaml
 entity_registry.yaml
 known_devices.yaml
+zwave_device_config.yaml
