@@ -10,6 +10,7 @@ tts/
 # make sure we keep the yaml and mp23 files
 !**/*.yaml
 !**/*.mp3
+!**/*.wav
 
 # keeep the gitingore file itself
 !.gitignore
