@@ -1,0 +1,35 @@
+climate.guest_2:
+  hidden: true
+climate.master_2:
+  hidden: true
+binary_sensor.garage_door_opened:
+  hidden: true
+sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0:
+  hidden: true
+sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level_3_1:
+  hidden: true
+device_tracker.galaxys8:
+  name: Moselles S8+
+  friendly_name: Moselles S8+
+  icon: mdi:swim
+device_tracker.google_maps_100887828568918292182:
+  name: Steven
+  friendly_name: Steven
+  icon: mdi:desktop-classic
+device_tracker.google_maps_101922566008912446057:
+  name: Moselle
+  friendly_name: Moselle
+  icon: mdi:desktop-classic
+group.all_automations:
+  hidden: false
+binary_sensor.dome_leak_sensor_liquid_detected:
+  friendly_name: Dome Leak Sensor 1
+switch.power_strip_1_switch_0:
+  friendly_name: Cable Modem Switch   
+switch.power_strip_1_switch_1:
+  friendly_name: Router Switch    
+switch.power_strip_1_switch_2:
+  friendly_name: Color Printer Switch    
+  
+  
+  

@@ -1,0 +1,15 @@
+# this automation will turn the router off, but Power Strip 1 will turn it back on after a delay
+# see switches on Espurna 
+- id: router_off
+  alias: Router Power Cycle
+  initial_state: true
+  trigger:
+    platform: time
+    at: '02:00'
+  condition:
+  - condition: time
+    weekday:
+      - sat
+  action:
+    service: switch.turn_off
+    entity_id: switch.power_strip_1_switch_1

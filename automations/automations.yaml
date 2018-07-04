@@ -1,0 +1,251 @@
+- id: watch_tv
+  alias: Watch TV
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.watch_tv
+    to: 'on'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.watch_television
+    
+- id: watch_tv_stop
+  alias: Stop Watching TV
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.watch_tv_stop
+    to: 'on'
+  action:
+  - service: scene.turn_on
+    entity_id: scene.stop_watch_television
+    
+- id: garage_door_open
+  alias: Garage Door Open
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door_opener
+    to: open
+  action:
+  - service: homeassistant.turn_on
+    entity_id: switch.garage_door_indicator
+  - service: notify.pushover_notifier
+    data:
+      message: Garage Door Opened
+      title: Garage Door
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 0
+  - service: notify.yahoo_email_notifier
+    data:
+      title: 'Home Assistant - Garage Door Opened'
+      message: 'Garage Door just opened'
+            # data:
+                # images:
+                    # - /home/pi/snapshot1.jpg
+                    # - /home/pi/snapshot2.jpg        
+        
+- id: garage_door_closed
+  alias: Garage Door Closed
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door_opener
+    to: closed
+  action:
+  - service: homeassistant.turn_off
+    entity_id: switch.garage_door_indicator
+  - service: notify.pushover_notifier
+    data:
+      message: Garage Door Closed
+      title: Garage Door
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 0
+        
+   
+- id: daddy_plant_dry
+  alias: Daddy Plant Dry
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.flower_daddy_moisture
+    below: 25
+  action:
+  - service: notify.pushover_notifier
+    data:
+      message: Daddy Plant Dry
+      title: Daddy Plant
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 0
+        
+- id: smoke_detector_1
+  alias: Smoke Detector 1 Trigger
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0
+    below: 13
+  action:
+  - service: notify.pushover_notifier
+    data_template:
+      title: Smoke Detector 1 Triggered
+      message: "{% if is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0\"\
+        , \"13\") %}\n  Idle\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0\"\
+        , \"1\") %}\n  Fire Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0\"\
+        , \"2\") %}\n  Carbon Monoxide Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3_0\"\
+        , \"12\") %}\n  Alarm Testing\n{% else %}\n  Unknown \n{% endif %}\n"
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 1
+        
+- id: smoke_detector_2
+  alias: Smoke Detector 2 Trigger
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9_0
+    below: 13
+  action:
+  - service: notify.pushover_notifier
+    data_template:
+      title: Smoke Detector 2 Triggered
+      message: "{% if is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9_0\"\
+        , \"13\") %}\n  Idle\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9_0\"\
+        , \"1\") %}\n  Fire Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9_0\"\
+        , \"2\") %}\n  Carbon Monoxide Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9_0\"\
+        , \"12\") %}\n  Alarm Testing\n{% else %}\n  Unknown\n{% endif %}\n"
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 1
+        
+- id: smoke_detector_3
+  alias: Smoke Detector 3 Trigger
+  initial_state: true
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10_0
+    below: 13
+  action:
+  - service: notify.pushover_notifier
+    data_template:
+      title: Smoke Detector 3 Triggered
+      message: "{% if is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10_0\"\
+        , \"13\") %}\n  Idle\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10_0\"\
+        , \"1\") %}\n  Fire Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10_0\"\
+        , \"2\") %}\n  Carbon Monoxide Detected\n{% elif is_state(\"sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10_0\"\
+        , \"12\") %}\n  Alarm Testing\n{% else %}\n  Unknown\n{% endif %}\n"
+      target: steven-phone
+      data:
+        sound: pianobar
+        priority: 1
+        
+- id: pantry_door_open
+  alias: Pantry Door Open
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.pantry_door_opened
+    to: 'on'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: light.pantry_lights
+    
+    
+- id: pantry_door_closed
+  alias: Pantry Door Closed
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.pantry_door_opened
+    to: 'off'
+  action:
+  - service: homeassistant.turn_off
+    entity_id: light.pantry_lights
+  - service: tts.google_say
+    entity_id: media_player.bluetooth_speaker
+    data:
+      message: ‘Pantry door is closed’
+   
+- id: 'lock_doors_at_night'   
+  alias: Lock Doors at Night
+  initial_state: true
+  trigger:
+  - platform: time
+    at: '20:00'
+  action:
+  - service: lock.lock
+    entity_id: lock.front_door_lock
+  - service: lock.lock
+    entity_id: lock.back_door
+    
+# - id: 'Turn_on_computer_on_weekday'
+  # alias: Turn on computer on Weekday
+  # trigger:
+    # platform: time
+    # at: '15:30'
+  # condition:
+  # - condition: time
+    # weekday:
+      # - mon
+      # - tue
+      # - wed
+      # - thu
+      # - fri
+  # action:
+    # service: homeassistant.turn_on
+    # entity_id: switch.wake_on_lan
+    
+# - id: 'Turn_on_computer_on_weekend'
+  # alias: Turn on computer on Weekend
+  # trigger:
+    # platform: time
+    # at: '07:30'
+  # condition:
+  # - condition: time
+    # weekday:
+      # - sat
+      # - sun
+  # action:
+    # service: homeassistant.turn_on
+    # entity_id: switch.wake_on_lan
+    
+# - id: moselle_leaving
+  # alias: 'Moselle Leaving'
+  # trigger:
+    # platform: state
+    # entity_id: device_tracker.galaxys8
+    # from: 'home'
+    # to: 'not_home'
+  # action:
+  # - service: notify.pushover_notifier
+    # data:
+      # message: Moselle Left
+      # title: Moselle Left Home
+      # target: steven-phone
+      # data:
+        # sound: pianobar
+        # priority: 0
+    
+
+    
+# - id: laundry_door_opened_sound
+  # alias: Laundry Door Open Sound
+  # initial_state: true
+  # trigger:
+  # - platform: state
+    # entity_id: binary_sensor.laundry_room_door_sensor_opened
+    # to: 'on'
+  # action:
+  # - service: tts.google_say
+    # entity_id: media_player.tts_bluetooth_speaker
+    # data:
+      # message: 'Laundry door has been opened'
+    

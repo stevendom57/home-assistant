@@ -1,0 +1,27 @@
+action:
+  # - service: tts.google_say
+    # entity_id: media_player.all_speakers
+    # data:
+      # message: 'Turning on amp'
+  - service: script.turn_on
+    entity_id: script.turn_on_amp
+  # - service: media_player.turn_on
+    # entity_id: media_player.denon_avr     
+  # - service: media_player.select_source
+    # data:
+      # entity_id: media_player.denon_avr
+      # source: "AUX"
+      # volume_level: 0.4      
+  #- service: scene.turn_on
+    # entity_id: scene.watch_television
+  # - service: scene.turn_on
+    # entity_id: scene.turn_off_guest_side
+  # - service: scene.turn_on
+    # entity_id: scene.turn_off_living_room
+
+  # - service: lock.lock
+    # entity_id: lock.front_door_lock
+  # - service: lock.lock
+    # entity_id: lock.back_door
+  # - service: cover.close_cover
+    # entity_id: cover.garage_door_opener    

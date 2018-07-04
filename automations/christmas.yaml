@@ -1,0 +1,40 @@
+- id: christmas_tree_on
+  alias: Christmas Tree On
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: switch.turn_on
+    entity_id: switch.christmas_tree
+    
+- id: christmas_tree_off
+  alias: Christmas Tree Off
+  initial_state: true
+  trigger:
+    platform: time
+    at: '22:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.christmas_tree
+    
+- id: christmas_lights_on
+  alias: Christmas Lights On
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: switch.turn_on
+    entity_id: switch.outside_christmas_lights
+    
+- id: christmas_lights_off
+  alias: Christmas Lights Off
+  initial_state: true
+  trigger:
+    platform: time
+    at: '22:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.outside_christmas_lights
+    

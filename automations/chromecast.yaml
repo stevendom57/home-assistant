@@ -1,0 +1,45 @@
+# - id: keep_parlor_speaker_alive
+  # alias: Keep Parloe Speaker Alive
+  # initial_state: true
+  # trigger:
+    # platform: time
+    # minutes: '/2'
+    # seconds: 00
+  # condition:
+    # condition: or
+    # conditions:
+      # - condition: state
+        # entity_id: media_player.parlor_speaker
+        # state: 'off'
+      # - condition: state
+        # entity_id: media_player.parlor_speaker
+        # state: 'idle'
+  # action:
+  # - service: media_player.play_media
+    # entity_id: media_player.parlor_speaker
+    # data:
+      # media_content_id: !secret chromecast_media_content_id
+      # media_content_type: 'audio/mp3'
+      
+# - id: keep_yoga_room_speaker_alive
+  # alias: Keep Yoga Room Speaker Alive
+  # initial_state: true
+  # trigger:
+    # platform: time
+    # minutes: '/2'
+    # seconds: 00
+  # condition:
+    # condition: or
+    # conditions:
+      # - condition: state
+        # entity_id: media_player.yoga_room_speaker
+        # state: 'off'
+      # - condition: state
+        # entity_id: media_player.yoga_room_speaker
+        # state: 'idle'
+  # action:
+  # - service: media_player.play_media
+    # entity_id: media_player.yoga_room_speaker
+    # data:
+      # media_content_id: !secret chromecast_media_content_id
+      # media_content_type: 'audio/mp3'            

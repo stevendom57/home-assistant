@@ -1,0 +1,19 @@
+- id: porch_light_on
+  alias: Porch Light On
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+    service: switch.turn_on
+    entity_id: switch.porch_light
+    
+- id: porch_light_off
+  alias: Porch Light Off
+  initial_state: true
+  trigger:
+    platform: time
+    at: '22:00'
+  action:
+    service: switch.turn_off
+    entity_id: switch.porch_light

@@ -1,0 +1,245 @@
+homeassistant: 
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret ha_latitude
+  longitude: !secret ha_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 256
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Chicago
+
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret ha_api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  base_url: !secret ha_base_url
+  
+  ssl_certificate: !secret ha_ssl_certificate
+  ssl_key: !secret ha_ssl_key
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+map:
+
+wink:
+
+wemo:
+  static:
+    - 192.168.1.202
+    - 192.168.1.203
+    - 192.168.1.204
+
+mqtt:
+  broker: localhost
+  keepalive: 60
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+# enable the configuration page
+config:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+group: !include groups.yaml
+sensor: !include sensors.yaml
+automation: !include_dir_merge_list automations
+script: !include_dir_merge_named scripts
+intent_script: !include_dir_named alexa_intents/
+scene: !include scenes/scenes.yaml
+light: !include lights/lights.yaml
+switch: !include switches/switches.yaml
+
+zwave:
+  device_config: !include zwave_device_config.yaml
+  usb_path: /dev/ttyACM0
+  config_path: /srv/homeassistant/lib/python3.6/site-packages/python_openzwave/ozw_config/
+  polling_interval: 60000
+
+recorder:
+  purge_interval: 1
+  purge_keep_days: 7
+
+tts:
+  - platform: google
+  
+alexa: 
+
+dialogflow:
+
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+  
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg  
+
+frontend:
+  javascript_version: latest
+  
+# Enables support for tracking state changes over time.
+history:
+  exclude:
+    entities:
+      - sensor.washing_machine_watts    
+
+history_graph:
+  washing_machine_power:
+    name: Washing Machine Power
+    entities:
+      - sensor.washing_machine_watts
+    hours_to_show: 4
+    refresh: 60
+
+# View all events in a logbook
+logbook:
+  exclude:
+    entities:
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level_2
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level_3
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level_9
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_level_10
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_2
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_3
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_9
+      - sensor.first_alert_zcombo_smoke_and_carbon_monoxide_detector_alarm_type_10
+      - sensor.since_last_boot
+
+# Track the sun
+sun:
+
+shopping_list:
+
+camera:
+  - platform: mjpeg
+#    mjpeg_url: http://192.168.1.209:8081
+    mjpeg_url: !secret living_room_camera_url
+    name: Living Room
+  - platform: mjpeg
+    name: dlink 936l new
+    mjpeg_url: !secret dlink_camera_url
+    username: !secret dlink_username
+    password: !secret dlink_password
+  - platform: mjpeg
+    mjpeg_url: !secret front_yard_camera_url
+    name: Front Yard
+  - platform: ring 
+    name: Front Door
+  - platform: mjpeg
+    mjpeg_url: !secret ring_camera_test_url
+    name: fr door test
+  - platform: mjpeg
+    name: test
+    mjpeg_url: !secret pi_camera_url
+    username: !secret pi_camera_username
+    password: !secret pi_camera_password
+
+insteon_local:
+  host: 192.168.1.102
+  username: !secret insteon_username
+  password: !secret insteon_password
+  
+climate:
+  platform: honeywell
+  username: !secret honeywell_username
+  password: !secret honeywell_password
+  region: us
+  scan_interval: 600
+  
+notify:
+  - name: pushover_notifier
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_api_key
+  - name: yahoo_email_notifier
+    platform: smtp
+    server: smtp.mail.yahoo.com
+    port: 587
+    timeout: 15
+    sender: !secret gmail_sender
+    encryption: starttls
+    username: !secret gmail_username
+    password: !secret gmail_password
+    recipient:
+      - !secret gmail_recipient_1
+    sender_name: My Home Assistant    
+  
+cover:
+  - platform: myq
+    username: !secret myq_username
+    password: !secret myq_password
+    type: chamberlain 
+    
+logger:
+  default: warning
+  logs:
+    homeassistant.components.camera: error
+    homeassistant.components.mqtt: debug
+    homeassistant.components.media_player.plex: critical
+    requests.packages.urllib3: critical
+    requests.packages.urllib3.exceptions.LocationParseError: critical
+
+device_tracker:
+  - platform: google_maps
+    username: !secret google_maps_locator_username
+    password: !secret google_maps_locator_password
+    
+media_player:
+  - platform: gstreamer
+    name: gstreamer
+    pipeline: "audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! filesink location=/tmp/snapfifo"
+  # - platform: tts_bluetooth_speaker
+    # address: C9:50:76:80:04:7C.a2dp_sink  # anker
+    # volume: 1.0
+    # pre_silence_duration: 1.5
+  - platform: samsungtv
+    host: 192.168.1.107
+    #port: 8001
+    name: Living Room TV
+    mac: 50:85:69:25:f2:4a
+  - platform: denonavr
+    host: 192.168.1.106
+    name: Denon Avr
+  - platform: cast
+    host: 192.168.1.207
+  - platform: mpd
+    host: 192.168.1.207
+    name: Multi-Room Controller    
+  - platform: mpd
+    host: 192.168.1.139
+    name: Room 1   
+  - platform: mpd
+    host: 192.168.1.137
+    name: Room 2 
+  - platform: cast
+    
+zone:
+  - name: MyHome
+    latitude: !secret ha_latitude
+    longitude: !secret ha_longitude
+    radius: 500
+    icon: mdi:home
+    
+input_boolean:
+  watch_tv:
+    name: Watch TV
+    initial: off
+    # icon: mdi:car    
+  watch_tv_stop:
+    name: Stop Watching TV
+    initial: off
+    # icon: mdi:car    

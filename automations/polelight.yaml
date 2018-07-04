@@ -1,0 +1,21 @@
+- id: pole_light_on
+  alias: Pole Light On
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.pole_lamp
+    
+- id: pole_light_off
+  alias: Pole Light Off
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.pole_lamp

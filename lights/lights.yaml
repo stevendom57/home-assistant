@@ -1,0 +1,81 @@
+#- platform: insteon_local
+
+- platform: mqtt
+  name: 'Stevens Lamp'
+  state_topic: '/lamp/steven/relay/0'
+  command_topic: '/lamp/steven/relay/0'
+  payload_on: 1
+  payload_off: 0
+  rgb_state_topic: '/lamp/steven/color'
+  rgb_command_topic: '/lamp/steven/color'
+  rgb: true
+  optimistic: false
+  
+- platform: mqtt
+  name: 'Moselles Lamp'
+  state_topic: '/lamp/moselle/relay/0'
+  command_topic: '/lamp/moselle/relay/0'
+  payload_on: 1
+  payload_off: 0
+  rgb_state_topic: '/lamp/moselle/color'
+  rgb_command_topic: '/lamp/moselle/color'
+  rgb: true
+  optimistic: false
+  
+- platform: mqtt
+  name: 'Pantry Lights'
+  state_topic: '/lights/pantry/relay/0'
+  command_topic: '/lights/pantry/relay/0'
+  payload_on: 1
+  payload_off: 0
+  rgb_state_topic: '/lights/pantry/color'
+  rgb_command_topic: '/lights/pantry/color'
+  rgb: true
+  optimistic: false
+  
+- platform: mqtt
+  name: 'Pole Lamp'
+  state_topic: '/light/pole/relay/0/set'
+  command_topic: '/light/pole/relay/0/set'
+  payload_on: 1
+  payload_off: 0
+  rgb_state_topic: '/light/pole/rgb'
+  rgb_command_topic: '/light/pole/rgb/set'
+  rgb: true
+  optimistic: false
+  
+- platform: mqtt
+  name: 'Namaste Light'
+  state_topic: 'lamp/namaste/relay/0'
+  command_topic: 'lamp/namaste/relay/0/set'
+  payload_on: 1
+  payload_off: 0
+  rgb_state_topic: 'lamp/namaste/light/color'
+  rgb_command_topic: 'lamp/namaste/color/set'
+  rgb: true
+  optimistic: false
+  color_temp: false
+  color_temp_command_topic: '/lamp/namaste/mired/set'
+  brightness: true
+  brightness_scale: 255
+  brightness_command_topic:  'lamp/namaste/brightness/set'
+  brightness_state_topic: 'lamp/namaste/brightness'
+  white_value: false
+  white_value_command_topic: 'lamp/namaste/channel/3/set'
+  
+- platform: mqtt
+  name: 'Cabinet Lights 1'
+  state_topic: '/lights/cabinet/1/relay/0/set'
+  command_topic: '/lights/cabinet/1/relay/0/set'
+  payload_on: 1
+  payload_off: 0
+  white_value_command_topic: '/lights/cabinet/1/channel/3/set'
+
+- platform: mqtt
+  name: 'Cabinet Lights 2'
+  state_topic: '/lights/cabinet/2/relay/0/set'
+  command_topic: '/lights/cabinet/2/relay/0/set'
+  payload_on: 1
+  payload_off: 0
+  white_value_command_topic: '/lights/cabinet/2/channel/3/set'
+  

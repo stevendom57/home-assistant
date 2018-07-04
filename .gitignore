@@ -1,0 +1,20 @@
+# ignore all by default
+*
+
+# but don't ignore subdirs
+!*/
+
+# but ignore tts subdir because that 's where temp files for tts are written
+tts/
+
+# make sure we keep the yaml and mp23 files
+!**/*.yaml
+!**/*.mp3
+
+# keeep the gitingore file itself
+!.gitignore
+
+# ignore these yaml specifically
+secrets.yaml
+entity_registry.yaml
+known_devices.yaml

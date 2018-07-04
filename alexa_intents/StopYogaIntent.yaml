@@ -1,0 +1,12 @@
+action:
+- service: homeassistant.turn_off
+  entity_id: switch.salt_lamp_1
+- service: homeassistant.turn_off
+  entity_id: switch.salt_lamp_2
+- service: homeassistant.turn_off
+  entity_id: switch.yoga_fountain
+- service: homeassistant.turn_off
+  entity_id: light.namaste_light
+- service: scene.turn_on
+  entity_id: scene.yoga_light_bright
+  

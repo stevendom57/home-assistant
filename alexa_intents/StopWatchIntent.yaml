@@ -1,0 +1,3 @@
+action:
+- service: scene.turn_on
+  entity_id: scene.stop_watch_television  

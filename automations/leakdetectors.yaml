@@ -1,0 +1,56 @@
+- id: guest_bathroom_leak_detected
+  alias: Guest Bathroom Leak Detected
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.dome_leak_sensor_liquid_detected
+    to: 'on'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.all_speakers
+    data:
+      message: 'Guest Bathroom Leek Detected'
+  - service: notify.yahoo_email_notifier
+    data:
+      title: 'Home Assistant - Guest Bathroom Leak Detected'
+      message: 'Guest Bathroom Leak Detected'
+
+- id: master_bathroom_leak_detected
+  alias: Master Bathroom Leak Detected
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.master_bathroom_leak_detector_liquid_detected
+    to: 'on'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.all_speakers
+    data:
+      message: 'Master Bathroom Leek Detected'
+  - service: notify.yahoo_email_notifier
+    data:
+      title: 'Home Assistant - Master Bathroom Leak Detected'
+      message: 'Master Bathroom Leak Detected'
+      # data:
+        # images:
+            # - /home/pi/snapshot1.jpg
+            # - /home/pi/snapshot2.jpg  
+            
+            
+- id: powder_room_leak_detected
+  alias: Powder Room Leak Detected
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.powder_room_leak_detector_liquid_detected
+    to: 'on'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.all_speakers
+    data:
+      message: 'Powder Room Leek Detected'
+  - service: notify.yahoo_email_notifier
+    data:
+      title: 'Home Assistant - Powder Room Leak Detected'
+      message: 'Powder Room Leak Detected'
+            

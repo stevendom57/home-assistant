@@ -1,0 +1,62 @@
+- platform: insteon_local
+
+# - platform: wake_on_lan
+  # mac_address: "C8-60-00-DE-FB-6C"
+  
+# - platform: OutletDevice
+  # name: Switch 1
+  # host: 192.168.1.151
+  # local_key: 7q4gvgux8hq48u3v5ptp
+  # device_id: 002008306001944416f5
+  # id: 1
+  
+- name: Power Strip 1 Switch 0
+  platform: mqtt
+  state_topic: /switch/powerstrip1/relay/0
+  command_topic: /switch/powerstrip1/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /switch/powerstrip1/status
+  payload_available: 1
+  payload_not_available: 0
+
+- name: Power Strip 1 Switch 1
+  platform: mqtt
+  state_topic: /switch/powerstrip1/relay/1
+  command_topic: /switch/powerstrip1/relay/1/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /switch/powerstrip1/status
+  payload_available: 1
+  payload_not_available: 0
+
+- name: Power Strip 1 Switch 2
+  platform: mqtt
+  state_topic: /switch/powerstrip1/relay/2
+  command_topic: /switch/powerstrip1/relay/2/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /switch/powerstrip1/status
+  payload_available: 1
+  payload_not_available: 0
+
+- name: Power Strip 1 Switch 3
+  platform: mqtt
+  state_topic: /switch/powerstrip1/relay/3
+  command_topic: /switch/powerstrip1/relay/3/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /switch/powerstrip1/status
+  payload_available: 1
+  payload_not_available: 0
+
+- name: Power Strip 1 USB
+  platform: mqtt
+  state_topic: /switch/powerstrip1/relay/4
+  command_topic: /switch/powerstrip1/relay/4/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /switch/powerstrip1/status
+  payload_available: 1
+  payload_not_available: 0
+

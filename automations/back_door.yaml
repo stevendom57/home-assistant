@@ -1,0 +1,60 @@
+- id: back_door_opened
+  alias: Back Door Open
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.back_door_sensor_opened
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: time
+      after: '15:59:00'
+    - condition: time
+      before: '23:59:00'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.back_porch_light
+  - service: tts.google_say
+    entity_id: media_player.tts_bluetooth_speaker
+    data:
+      message: Back door has been opened
+    
+# - id: back_door_opened_sound
+  # alias: Back Door Open Sound
+  # initial_state: true
+  # trigger:
+  # - platform: state
+    # entity_id: binary_sensor.back_door_sensor_opened
+    # to: 'on'
+  # action:
+  # - service: tts.google_say
+    # entity_id: media_player.gstreamer
+    # data:
+      # message: Back door has been opened
+    
+
+- id: back_door_closed
+  alias: Back Door Closed
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: lock.back_door
+    to: 'locked'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.back_porch_light
+
+- id: back_door_late_night
+  alias: Back Door Late Night
+  hide_entity: false
+  initial_state: true
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.back_porch_light

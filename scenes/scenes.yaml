@@ -1,0 +1,79 @@
+- name: Yoga Light Dim
+  entities:
+    light.yoga_room_light:
+      state: on
+      brightness: 5
+    light.namaste_light:
+      state: on
+      brightness: 256
+      
+- name: Yoga Light Bright
+  entities:
+    light.yoga_room_light:
+      state: on
+      brightness: 256
+    light.namaste_light:
+      state: off
+
+- name: Watch Television
+  entities:
+    light.moselles_lamp:
+      state: on
+      brightness: 128
+      rgb_color: [255, 140, 0]
+    light.stevens_lamp:
+      state: on
+      brightness: 128
+      rgb_color: [255, 140, 0]
+    light.bedroom_light:
+      state: off
+
+- name: Stop Watch Television
+  entities:
+    light.moselles_lamp:
+      state: off
+    light.stevens_lamp:
+      state: off
+    light.bedroom_light:
+      state: on
+      brightness: 10
+      
+- name: Turn Off Guest Side
+  entities:
+    light.yoga_room_light:
+      state: off
+    light.namaste_light:
+      state: off
+    switch.yoga_fountain:
+      state: off
+    switch.salt_lamp_1:
+      state: off
+    switch.salt_lamp_2:
+      state: off
+    switch.guest_hall_light:
+      state: off
+    switch.guest_bathroom_light:
+      state: off
+      
+- name: Turn Off Living Room
+  entities:
+    light.kitchen_lights:
+      state: off
+    light.living_room_lamp:
+      state: off
+    light.parlor_lamp:
+      state: off
+    light.parlor_light:
+      state: off
+    switch.parlor_candle:
+      state: off
+    light.pantry_lights:
+      state: off
+    light.dining_light:
+      state: off
+      
+      
+      
+
+      
+      
