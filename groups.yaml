@@ -18,7 +18,6 @@ default_view:
     - device_tracker.google_maps_100887828568918292182
     - device_tracker.google_maps_101922566008912446057
     - group.outside
-    - group.powerstrip1
     - group.office
 
 climate:
@@ -56,8 +55,11 @@ infrastructure:
     - group.cpu
     - group.zwave
     - sensor.ssl_certificate_expiry
-    - switch.wake_on_lan
-    - media_player.osmc
+#    - switch.wake_on_lan
+#    - media_player.osmc
+    - group.powerstrip1
+    - group.powerstrip2
+
 
 automations:
   name: Automations
@@ -102,6 +104,15 @@ powerstrip1:
     - switch.power_strip_1_switch_3
     - switch.power_strip_1_usb
   
+powerstrip2:
+  name: Power Strip 2
+  entities:
+    - switch.power_strip_2_switch_0
+    - switch.power_strip_2_switch_1
+    - switch.power_strip_2_switch_2
+    - switch.power_strip_2_switch_3
+    - switch.power_strip_2_usb
+  
 cameralivingroom:
   name: Living Room
   entities:
@@ -121,6 +132,7 @@ battery_levels:
     - sensor.battery_level_smoke_co_alarm_1
     - sensor.battery_level_smoke_co_alarm_2
     - sensor.battery_level_smoke_co_alarm_3
+    - sensor.battery_level_laundry_door_sensor
  
   
 media_players:
@@ -212,8 +224,9 @@ parlor:
     - light.parlor_lamp
     - sensor.plant_daddy_moisture
     - sensor.plant_daddy_battery
-    - switch.parlor_candle
-    - switch.outside_christmas_lights
+    #- switch.parlor_candle
+    #- switch.power_strip_2_switch_0
+    #- switch.outside_christmas_lights
 
 bedroom:
   name: Master Bedroom

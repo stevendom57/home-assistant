@@ -25,11 +25,24 @@ group.all_automations:
 binary_sensor.dome_leak_sensor_liquid_detected:
   friendly_name: Dome Leak Sensor 1
 switch.power_strip_1_switch_0:
-  friendly_name: Cable Modem Switch   
+  friendly_name: Cable Modem Switch
 switch.power_strip_1_switch_1:
-  friendly_name: Router Switch    
+  friendly_name: Router Switch
 switch.power_strip_1_switch_2:
-  friendly_name: Color Printer Switch    
-  
-  
-  
+  friendly_name: Color Printer Switch
+sensor.battery_level_back_door:
+  icon: mdi:battery
+sensor.battery_level_front_door_lock:
+  icon: mdi:battery
+sensor.battery_level_smoke_co_alarm_1:
+  icon: mdi:battery
+sensor.battery_level_smoke_co_alarm_2:
+  icon: mdi:battery
+sensor.battery_level_smoke_co_alarm_3:
+  icon: mdi:battery
+sensor.battery_level_dome_leak_detector_1:
+  icon: mdi:battery
+switch.power_strip_2_switch_3:
+  friendly_name: Chromecast Announcer 
+switch.power_strip_2_switch_0:
+  friendly_name: Parlor Candle

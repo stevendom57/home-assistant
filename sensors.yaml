@@ -110,7 +110,12 @@
       friendly_name: 'Back Door Lock Battery'
       value_template: '{{states.lock.back_door.attributes.battery_level}}'
       unit_of_measurement: '%'
-
+      
+    battery_level_laundry_door_sensor:
+      friendly_name: 'Laundry Door Sensor Battery'
+      value_template: '{{states.binary_sensor.laundry_room_door_sensor_opened.attributes.battery_level}}'
+      unit_of_measurement: '%'
+      
 ############################################################################        
 - platform: mqtt
   state_topic: "spd/cabinet/light"
