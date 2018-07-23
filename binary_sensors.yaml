@@ -1,0 +1,7 @@
+- platform: template
+  sensors:
+    batt_frontdoor:
+      friendly_name: 'Front Door Battery'
+      value_template: '{{ states.sensor.battery_level_front_door_lock < 99 }}'
+
+    

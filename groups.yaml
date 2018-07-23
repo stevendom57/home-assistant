@@ -27,7 +27,7 @@ climate:
     - group.indoorclimate
     - group.weather_overview
     - group.daily_forecast
-
+  
 safety:
   name: Safety
   view: yes
@@ -224,6 +224,7 @@ parlor:
     - light.parlor_lamp
     - sensor.plant_daddy_moisture
     - sensor.plant_daddy_battery
+    - switch.power_strip_2_switch_0
     #- switch.parlor_candle
     #- switch.power_strip_2_switch_0
     #- switch.outside_christmas_lights
@@ -290,6 +291,8 @@ indoorclimate:
   entities:
     - climate.master
     - climate.guest
+    - climate.master_2
+    - climate.guest_2
     
 weather_overview:
   name: Weather overview

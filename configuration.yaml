@@ -55,6 +55,7 @@ conversation:
 
 group: !include groups.yaml
 sensor: !include sensors.yaml
+binary_sensor: !include binary_sensors.yaml
 automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
 intent_script: !include_dir_named alexa_intents/
