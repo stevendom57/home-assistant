@@ -1,0 +1,20 @@
+- id: address_light_on
+  alias: Address Light On
+  initial_state: true
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.addresslight
+    
+- id: address_light_off
+  alias: Address Light Off
+  initial_state: true
+  trigger:
+    platform: time
+    at: '22:00'
+  action:
+    service: light.turn_off
+    entity_id: light.addresslight

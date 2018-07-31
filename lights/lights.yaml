@@ -78,4 +78,21 @@
   payload_on: 1
   payload_off: 0
   white_value_command_topic: '/lights/cabinet/2/channel/3/set'
+
+- name: AddressLight
+  platform: mqtt
+  state_topic: /light/addressnumber/relay/0
+  command_topic: /light/addressnumber/relay/0/set
+  payload_on: 1
+  payload_off: 0
+  availability_topic: /light/addressnumber/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: /light/addressnumber/brightness
+  brightness_command_topic: /light/addressnumber/brightness/set
+  rgb_state_topic: /light/addressnumber/rgb
+  rgb_command_topic: /light/addressnumber/rgb/set
+  color_temp_command_topic: /light/addressnumber/mired/set
+  white_value_state_topic: /light/addressnumber/channel/3
+  white_value_command_topic: /light/addressnumber/channel/3/set
   
