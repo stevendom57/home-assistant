@@ -46,3 +46,5 @@ switch.power_strip_2_switch_3:
   friendly_name: Chromecast Announcer 
 switch.power_strip_2_switch_0:
   friendly_name: Parlor Candle
+light.addresslight:
+  friendly_name: Address Light  
