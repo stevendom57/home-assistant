@@ -2,7 +2,7 @@
 ############################################################################
 default_view:
   view: yes
-  icon: mdi:home 
+  icon: mdi:home
   entities:
     - group.parlor
     - group.bedroom
@@ -27,26 +27,26 @@ climate:
     - group.indoorclimate
     - group.weather_overview
     - group.daily_forecast
-  
+
 safety:
   name: Safety
   view: yes
   entities:
     - group.smokedetector
     - group.leak_sensors
-    
+
 cameras:
   name: Cameras
   view: yes
   entities:
     - group.cameralivingroom
-    
+
 warnings:
   name: Warnings
   view: yes
   entities:
     - group.battery_levels
-    
+
 infrastructure:
   name: Infrastructure
   view: yes
@@ -67,13 +67,13 @@ automations:
   entities:
     - group.all_automations
     - group.input_booleans
-    
+
 graphs:
   name: Graphs
   view: yes
   icon: mdi:chart-line-variant
   entities:
-    - group.graph_power    
+    - group.graph_power
 
 # Groups
 ############################################################################
@@ -83,7 +83,7 @@ input_booleans:
   entities:
     - input_boolean.watch_tv
     - input_boolean.watch_tv_stop
-  
+
 leak_sensors:
   name: Leak Sensors
   entities:
@@ -94,7 +94,7 @@ office:
   name: Office
   entities:
     - light.office_light
-    
+
 powerstrip1:
   name: Power Strip 1
   entities:
@@ -103,7 +103,7 @@ powerstrip1:
     - switch.power_strip_1_switch_2
     - switch.power_strip_1_switch_3
     - switch.power_strip_1_usb
-  
+
 powerstrip2:
   name: Power Strip 2
   entities:
@@ -112,7 +112,7 @@ powerstrip2:
     - switch.power_strip_2_switch_2
     - switch.power_strip_2_switch_3
     - switch.power_strip_2_usb
-  
+
 cameralivingroom:
   name: Living Room
   entities:
@@ -122,10 +122,10 @@ cameralivingroom:
     - camera.cam
     - camera.dlink_936l_new
     - camera.test
-    
+
 battery_levels:
   name: Battery Levels
-  entities:  
+  entities:
     - sensor.battery_level_dome_leak_detector_1
     - sensor.battery_level_front_door_lock
     - sensor.battery_level_back_door
@@ -133,8 +133,8 @@ battery_levels:
     - sensor.battery_level_smoke_co_alarm_2
     - sensor.battery_level_smoke_co_alarm_3
     - sensor.battery_level_laundry_door_sensor
- 
-  
+
+
 media_players:
   name: Media Players
   entities:
@@ -144,13 +144,13 @@ media_players:
   - media_player.denon_avr
   - media_player.snapcast_group_817ef4c17aad5e594a1c2d42cec397bf
   - media_player.samsung_led65_un65f8000
-   
+
 garage:
   name: Garage
   entities:
     - cover.garage_door_opener
     - switch.garage_door_indicator
-    
+
 zwave:
   name: ZWave
   entities:
@@ -158,7 +158,7 @@ zwave:
     - zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector_3
     - zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector_5
     - zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector_6
-    
+
 yoga:
   name: Yoga Room
   entities:
@@ -167,12 +167,12 @@ yoga:
     - switch.salt_lamp_2
     - switch.yoga_fountain
     - light.namaste_light
-   
+
 switches:
   name: Switches
   entities:
 #    - switch.garage_door_indicator
-    
+
 lights:
   name: Living Room
   entities:
@@ -181,8 +181,8 @@ lights:
     - light.cabinet_lights_2
     - light.dining_light
     - light.living_room_lamp
-    
-    
+
+
 hall:
   name: Hall
   entities:
@@ -190,14 +190,14 @@ hall:
     - switch.hall_light
     - switch.christmas_tree
     - switch.laundry_light
-    
+
 smokedetector:
   name: Smoke Detectors
   entities:
     - sensor.status_smoke_co_alarm_1
     - sensor.status_smoke_co_alarm_2
     - sensor.status_smoke_co_alarm_3
-    
+
 wink:
   name: Wink
   view: no
@@ -233,32 +233,32 @@ bedroom:
   name: Master Bedroom
   entities:
     - light.bedroom_light
-    - light.stevens_lamp
-    - light.moselles_lamp
+    - light.stevenslamp
+    - light.moselleslamp
     - light.bathroom_light
     - switch.hair_straightener_insight
     - switch.closet_lights
-    
+
 outside:
   name: Outside
   entities:
     - light.pole_lamp
-    - switch.porch_light 
+    - switch.porch_light
     - switch.back_porch_light
     - light.addresslight
-    
+
 tutorroom:
   name: Tutor Room
   entities:
     - light.tutor_room_light
     - switch.tutor_room_candle
-   
+
 guest:
   name: Guest
   entities:
     - switch.guest_bathroom_light
     - switch.guest_hall_light
-   
+
 doors:
   name: Doors
   entities:
@@ -294,7 +294,7 @@ indoorclimate:
     - climate.guest
     - climate.master_2
     - climate.guest_2
-    
+
 weather_overview:
   name: Weather overview
   entities:
@@ -311,7 +311,7 @@ weather_overview:
     - sensor.pws_wind_mph
     - sensor.pws_wind_1d_mph
     - sensor.pws_alerts
-      
+
 daily_forecast:
   name: Daily Forecast
   entities:
@@ -323,13 +323,13 @@ daily_forecast:
     - sensor.pws_weather_3n
     - sensor.pws_weather_4d
     - sensor.pws_weather_4n
-    
+
 graph_power:
   name: Washer
   view: no
   entities:
     - history_graph.washing_machine_power
-    
 
 
-      
+
+

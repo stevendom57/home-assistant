@@ -1,4 +1,4 @@
-homeassistant: 
+homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
@@ -21,7 +21,7 @@ http:
   api_password: !secret ha_api_password
   # Uncomment this if you are using SSL or running in Docker etc
   base_url: !secret ha_base_url
-  
+
   ssl_certificate: !secret ha_ssl_certificate
   ssl_key: !secret ha_ssl_key
 
@@ -75,26 +75,31 @@ recorder:
 
 tts:
   - platform: google
-  
-alexa: 
+
+cast:
+  #  media_player:
+  #  - host: 192.168.1.108
+
+
+alexa:
 
 dialogflow:
 
 ring:
   username: !secret ring_username
   password: !secret ring_password
-  
+
 ffmpeg:
-  ffmpeg_bin: /usr/bin/ffmpeg  
+  ffmpeg_bin: /usr/bin/ffmpeg
 
 frontend:
   javascript_version: latest
-  
+
 # Enables support for tracking state changes over time.
 history:
   exclude:
     entities:
-      - sensor.washing_machine_watts    
+      - sensor.washing_machine_watts
 
 history_graph:
   washing_machine_power:
@@ -137,7 +142,7 @@ camera:
   - platform: mjpeg
     mjpeg_url: !secret front_yard_camera_url
     name: Front Yard
-  - platform: ring 
+  - platform: ring
     name: Front Door
   - platform: mjpeg
     mjpeg_url: !secret ring_camera_test_url
@@ -152,14 +157,14 @@ insteon_local:
   host: 192.168.1.102
   username: !secret insteon_username
   password: !secret insteon_password
-  
+
 climate:
   platform: honeywell
   username: !secret honeywell_username
   password: !secret honeywell_password
   region: us
   scan_interval: 600
-  
+
 notify:
   - name: pushover_notifier
     platform: pushover
@@ -176,14 +181,14 @@ notify:
     password: !secret gmail_password
     recipient:
       - !secret gmail_recipient_1
-    sender_name: My Home Assistant    
-  
+    sender_name: My Home Assistant
+
 cover:
   - platform: myq
     username: !secret myq_username
     password: !secret myq_password
-    type: chamberlain 
-    
+    type: chamberlain
+
 logger:
   default: warning
   logs:
@@ -197,7 +202,7 @@ device_tracker:
   - platform: google_maps
     username: !secret google_maps_locator_username
     password: !secret google_maps_locator_password
-    
+
 media_player:
   - platform: gstreamer
     name: gstreamer
@@ -214,23 +219,23 @@ media_player:
   - platform: denonavr
     host: 192.168.1.106
     name: Denon Avr
-  - platform: cast
-    host: 192.168.1.207
-  - platform: cast
-    
+  # - platform: cast
+  #   host: 192.168.1.207
+  # - platform: cast
+
 zone:
   - name: MyHome
     latitude: !secret ha_latitude
     longitude: !secret ha_longitude
     radius: 500
     icon: mdi:home
-    
+
 input_boolean:
   watch_tv:
     name: Watch TV
     initial: off
-    # icon: mdi:car    
+    # icon: mdi:car
   watch_tv_stop:
     name: Stop Watching TV
     initial: off
-    # icon: mdi:car    
+    # icon: mdi:car

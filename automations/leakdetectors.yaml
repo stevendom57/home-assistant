@@ -54,3 +54,20 @@
       title: 'Home Assistant - Powder Room Leak Detected'
       message: 'Powder Room Leak Detected'
             
+- id: clothes_washer_leak_detected
+  alias: CLothes Washer Leak Detected
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.clothes_washer_leak_sensor_liquid_detected
+    to: 'on'
+  action:
+  - service: tts.google_say
+    entity_id: media_player.all_speakers
+    data:
+      message: 'Clothes Washer Leek Detected'
+  - service: notify.yahoo_email_notifier
+    data:
+      title: 'Home Assistant - Clothes Washer Leak Detected'
+      message: 'Clothes Washer Leak Detected'
+                        

@@ -6,7 +6,7 @@
     light.namaste_light:
       state: on
       brightness: 256
-      
+
 - name: Yoga Light Bright
   entities:
     light.yoga_room_light:
@@ -17,11 +17,11 @@
 
 - name: Watch Television
   entities:
-    light.moselles_lamp:
+    light.moselleslamp:
       state: on
       brightness: 128
       rgb_color: [255, 140, 0]
-    light.stevens_lamp:
+    light.stevenslamp:
       state: on
       brightness: 128
       rgb_color: [255, 140, 0]
@@ -30,14 +30,14 @@
 
 - name: Stop Watch Television
   entities:
-    light.moselles_lamp:
+    light.moselleslamp:
       state: off
-    light.stevens_lamp:
+    light.stevenslamp:
       state: off
     light.bedroom_light:
       state: on
       brightness: 10
-      
+
 - name: Turn Off Guest Side
   entities:
     light.yoga_room_light:
@@ -54,7 +54,7 @@
       state: off
     switch.guest_bathroom_light:
       state: off
-      
+
 - name: Turn Off Living Room
   entities:
     light.kitchen_lights:
@@ -71,9 +71,8 @@
       state: off
     light.dining_light:
       state: off
-      
-      
-      
 
-      
-      
+
+
+
+
