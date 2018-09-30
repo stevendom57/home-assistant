@@ -49,7 +49,7 @@
 
 - id: garage_door_closed
   alias: Garage Door Closed
-  initial_state: true
+  initial_state: false
   trigger:
   - platform: state
     entity_id: cover.garage_door_opener
