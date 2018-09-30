@@ -119,9 +119,7 @@ cameralivingroom:
     - camera.living_room
     - camera.front_yard
     - camera.front_door
-    - camera.cam
-    - camera.dlink_936l_new
-    - camera.test
+    - camera.garage
 
 battery_levels:
   name: Battery Levels
