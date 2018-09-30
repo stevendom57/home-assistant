@@ -132,26 +132,26 @@ shopping_list:
 
 camera:
   - platform: mjpeg
-    mjpeg_url: !secret living_room_camera_url
     name: Living Room
+    mjpeg_url: !secret living_room_camera_url
   - platform: mjpeg
-    name: dlink 936l new
+    name: Garage
     mjpeg_url: !secret dlink_camera_url
     username: !secret dlink_username
     password: !secret dlink_password
   - platform: mjpeg
-    mjpeg_url: !secret front_yard_camera_url
     name: Front Yard
+    mjpeg_url: !secret front_yard_camera_url
   - platform: ring
-    name: Front Door
-  - platform: mjpeg
-    mjpeg_url: !secret ring_camera_test_url
-    name: fr door test
-  - platform: mjpeg
-    name: test
-    mjpeg_url: !secret pi_camera_url
-    username: !secret pi_camera_username
-    password: !secret pi_camera_password
+    name: Front Door Ring
+  # - platform: mjpeg
+  #   name: fr door test
+  #   mjpeg_url: !secret ring_camera_test_url
+  # - platform: mjpeg
+  #   name: test
+  #   mjpeg_url: !secret pi_camera_url
+  #   username: !secret pi_camera_username
+  #   password: !secret pi_camera_password
 
 insteon_local:
   host: 192.168.1.102
