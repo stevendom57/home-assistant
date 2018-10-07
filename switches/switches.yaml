@@ -1,15 +1,15 @@
-- platform: insteon_local
+# - platform: insteon_local
 
 # - platform: wake_on_lan
   # mac_address: "C8-60-00-DE-FB-6C"
-  
+
 # - platform: OutletDevice
   # name: Switch 1
   # host: 192.168.1.151
   # local_key: 7q4gvgux8hq48u3v5ptp
   # device_id: 002008306001944416f5
   # id: 1
-  
+
 - name: Power Strip 1 Switch 0
   platform: mqtt
   state_topic: /switch/powerstrip1/relay/0
@@ -108,5 +108,5 @@
   payload_off: 0
   availability_topic: /switch/powerstrip2/status
   payload_available: 1
-  payload_not_available: 0  
+  payload_not_available: 0
 

@@ -153,10 +153,10 @@ camera:
   #   username: !secret pi_camera_username
   #   password: !secret pi_camera_password
 
-insteon_local:
-  host: 192.168.1.102
-  username: !secret insteon_username
-  password: !secret insteon_password
+# insteon_local:
+#   host: 192.168.1.102
+#   username: !secret insteon_username
+#   password: !secret insteon_password
 
 climate:
   platform: honeywell
