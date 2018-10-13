@@ -22,10 +22,10 @@
 
 - id: garage_door_open
   alias: Garage Door Open
-  initial_state: false
+  initial_state: true
   trigger:
   - platform: state
-    entity_id: cover.garage_door_opener
+    entity_id: cover.garage_door
     to: open
   action:
   - service: homeassistant.turn_on
@@ -49,10 +49,10 @@
 
 - id: garage_door_closed
   alias: Garage Door Closed
-  initial_state: false
+  initial_state: true
   trigger:
   - platform: state
-    entity_id: cover.garage_door_opener
+    entity_id: cover.garage_door
     to: closed
   action:
   - service: homeassistant.turn_off

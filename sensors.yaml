@@ -1,4 +1,4 @@
-############################################################################        
+############################################################################
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
@@ -9,14 +9,14 @@
     - type: last_boot
     - type: since_last_boot
 
-############################################################################        
+############################################################################
 - platform: command_line
   name: CPU Temperature
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "F"
   value_template: '{{ (value | multiply(0.001) * 1.8 + 32) | round(1) }}'
 
-############################################################################        
+############################################################################
 - platform: openweathermap
   api_key: 6af01c0de995c5e8302f36820d431309
   monitored_conditions:
@@ -29,7 +29,7 @@
     - rain
 #     - snow
 
-############################################################################        
+############################################################################
 - platform: miflora
   mac: 'c4:7c:8d:62:d4:99'
   name: Plant (Daddy)
@@ -41,7 +41,7 @@
     - temperature
     - conductivity
 
-############################################################################        
+############################################################################
 - platform: template
   sensors:
     battery_level_dome_leak_detector_1:
@@ -50,7 +50,7 @@
       unit_of_measurement: '%'
     battery_level_smoke_co_alarm_1:
       friendly_name: 'Smoke/CO #1 Alarm Battery'
-      value_template: '{{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector.attributes.battery_level}}'
+      value_template: '{{states.zwave.first_alert_smoke_detector_1.attributes.battery_level}}'
       unit_of_measurement: '%'
     status_smoke_co_alarm_1:
       friendly_name: 'Smoke/CO #1 Alarm'
@@ -86,7 +86,7 @@
         {%- endif %}
     battery_level_smoke_co_alarm_3:
       friendly_name: 'Smoke/CO #3 Alarm Battery'
-      value_template: '{{states.zwave.first_alert_zcombo_smoke_and_carbon_monoxide_detector_3.attributes.battery_level}}'
+      value_template: '{{states.zwave.first_alert_smoke_detector_3.attributes.battery_level}}'
       unit_of_measurement: '%'
     status_smoke_co_alarm_3:
       friendly_name: 'Smoke/CO #3 Alarm'
@@ -110,18 +110,18 @@
       friendly_name: 'Back Door Lock Battery'
       value_template: '{{states.lock.back_door.attributes.battery_level}}'
       unit_of_measurement: '%'
-      
+
     battery_level_laundry_door_sensor:
       friendly_name: 'Laundry Door Sensor Battery'
       value_template: '{{states.binary_sensor.laundry_room_door_sensor_opened.attributes.battery_level}}'
       unit_of_measurement: '%'
-      
-############################################################################        
+
+############################################################################
 - platform: mqtt
   state_topic: "spd/cabinet/light"
   name: "Cabinet Light"
- 
-############################################################################        
+
+############################################################################
 - platform: template
   sensors:
     # sensor1_windspeed:
@@ -135,8 +135,8 @@
       #value_template: {{ states.switch.hair_straightener_insight.attributes.current_power_w') }}
       #value_template: {{ states('switch.hair_straightener_insight_current_power_w') }}
       #value_template: '{% if states.switch.hair_straightener_insight %}{{ states.switch.hair_straightener_insight.attributes.current_power_w }}{% else %}Off{% endif %}'
-        
-############################################################################        
+
+############################################################################
 - platform: wunderground
   api_key: 6ac853706bf5f88b
   monitored_conditions:
@@ -147,7 +147,7 @@
     - weather_3d
     - weather_3n
     - weather_4d
-    - weather_4n  
+    - weather_4n
     - temp_high_record_f
     - temp_high_1d_f
     - temp_f
@@ -159,13 +159,13 @@
     - wind_1d_mph
     - alerts
     - station_id
-    
-############################################################################        
+
+############################################################################
 - platform: cert_expiry
   host: !secret cert_expiry_host
 
-  
-# - platform: template    
+
+# - platform: template
   # sensors:
     # washing_machine_watts:
       # value_template: {{ switch.hair_straightener_insight.state_detail }}
@@ -173,9 +173,9 @@
       #value_template: {{ states.switch.hair_straightener_insight.attributes.current_power_w') }}
       #value_template: {{ states('switch.hair_straightener_insight_current_power_w') }}
       #value_template: '{% if states.switch.hair_straightener_insight %}{{ states.switch.hair_straightener_insight.attributes.current_power_w }}{% else %}Off{% endif %}'
-      
 
 
 
-    
-        
+
+
+

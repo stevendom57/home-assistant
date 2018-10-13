@@ -146,7 +146,7 @@ media_players:
 garage:
   name: Garage
   entities:
-    - cover.garage_door_opener
+    - cover.garage_door
     - switch.garage_door_indicator
 
 zwave:
