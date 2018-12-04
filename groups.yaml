@@ -19,6 +19,7 @@ default_view:
     - device_tracker.google_maps_101922566008912446057
     - group.outside
     - group.office
+    - group.christmas
 
 climate:
   name: Climate
@@ -132,6 +133,10 @@ battery_levels:
     - sensor.battery_level_smoke_co_alarm_3
     - sensor.battery_level_laundry_door_sensor
 
+christmas:
+  name: Christmas
+  entities:
+    - switch.christmas_tree
 
 media_players:
   name: Media Players
