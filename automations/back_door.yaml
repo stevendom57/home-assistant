@@ -18,11 +18,11 @@
   action:
   - service: switch.turn_on
     entity_id: switch.back_porch_light
-  - service: tts.google_say
-    entity_id: media_player.tts_bluetooth_speaker
-    data:
-      message: Back door has been opened
-    
+  # - service: tts.google_say
+  #   entity_id: media_player.tts_bluetooth_speaker
+  #   data:
+  #     message: Back door has been opened
+
 # - id: back_door_opened_sound
   # alias: Back Door Open Sound
   # initial_state: true
@@ -35,7 +35,7 @@
     # entity_id: media_player.gstreamer
     # data:
       # message: Back door has been opened
-    
+
 
 - id: back_door_closed
   alias: Back Door Closed

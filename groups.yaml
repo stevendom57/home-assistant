@@ -249,6 +249,7 @@ outside:
     - switch.porch_light
     - switch.back_porch_light
     - light.addresslight
+    - light.backporchlight
 
 tutorroom:
   name: Tutor Room
