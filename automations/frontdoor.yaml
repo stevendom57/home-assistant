@@ -3,7 +3,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.front_door_opened
+    entity_id: binary_sensor.front_door_opened_2
     to: 'on'
   action:
   # - service: media_player.volume_set
@@ -14,17 +14,17 @@
     data:
       entity_id: media_player.all_speakers
       media_content_id: !secret chromecast_beep_sound
-      media_content_type: 'audio/mp3'  
-      
+      media_content_type: 'audio/mp3'
+
 - id: front_door_opened_too_long
   alias: Front Door Opened Too Long
   initial_state: true
   trigger:
-    platform: time
+    platform: time_pattern
     seconds: '/10'
   condition:
     condition: state
-    entity_id: binary_sensor.front_door_opened
+    entity_id: binary_sensor.front_door_opened_2
     state: 'on'
     for:
       seconds: 30
@@ -32,4 +32,4 @@
     service: tts.google_say
     entity_id: media_player.all_speakers
     data:
-      message: 'Front Door is Open'    
+      message: 'Front Door is Open'

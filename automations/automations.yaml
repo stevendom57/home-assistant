@@ -152,7 +152,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.pantry_door_opened
+    entity_id: binary_sensor.pantry_door_opened_2
     to: 'on'
   action:
   - service: homeassistant.turn_on
@@ -164,7 +164,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.pantry_door_opened
+    entity_id: binary_sensor.pantry_door_opened_2
     to: 'off'
   action:
   - service: homeassistant.turn_off

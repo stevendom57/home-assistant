@@ -88,7 +88,7 @@ input_booleans:
 leak_sensors:
   name: Leak Sensors
   entities:
-    - binary_sensor.dome_leak_sensor_liquid_detected
+    - binary_sensor.dome_leak_sensor_liquid_detected_2
 
 
 office:
@@ -268,11 +268,11 @@ doors:
   entities:
     - lock.front_door_lock
     - lock.back_door
-    - binary_sensor.pantry_door_opened
-    - binary_sensor.front_door_opened
-    - binary_sensor.back_door_sensor_opened
-    - binary_sensor.laundry_room_door_sensor_opened
-    - cover.garage_door_opener
+    - binary_sensor.pantry_door_opened_2
+    - binary_sensor.front_door_opened_2
+    - binary_sensor.back_door_sensor_opened_2
+    - binary_sensor.laundry_room_door_sensor_opened_2
+    - cover.garage_door_opener_2
 #    - binary_sensor.dena_key
 #    - binary_sensor.sandy_key
 #    - binary_sensor.steven_key

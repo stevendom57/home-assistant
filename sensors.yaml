@@ -7,7 +7,7 @@
     - type: swap_use_percent
     - type: processor_use
     - type: last_boot
-    - type: since_last_boot
+    # - type: since_last_boot
 
 ############################################################################
 - platform: command_line
@@ -86,7 +86,7 @@
         {%- endif %}
     battery_level_smoke_co_alarm_3:
       friendly_name: 'Smoke/CO #3 Alarm Battery'
-      value_template: '{{states.zwave.first_alert_smoke_detector_3.attributes.battery_level}}'
+      value_template: '{{states.zwave.mo.attributes.battery_level}}'
       unit_of_measurement: '%'
     status_smoke_co_alarm_3:
       friendly_name: 'Smoke/CO #3 Alarm'

@@ -3,7 +3,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.back_door_sensor_opened
+    entity_id: binary_sensor.back_door_sensor_opened_2
     to: 'on'
   condition:
     condition: and

@@ -34,16 +34,32 @@
   white_value_state_topic: /lamp/moselle/channel/3
   white_value_command_topic: /lamp/moselle/channel/3/set
 
-- platform: mqtt
-  name: 'Pantry Lights'
-  state_topic: '/lights/pantry/relay/0'
-  command_topic: '/lights/pantry/relay/0'
+# - platform: mqtt
+  # name: 'Pantry Lights'
+  # state_topic: '/lights/pantry/relay/0'
+  # command_topic: '/lights/pantry/relay/0'
+  # payload_on: 1
+  # payload_off: 0
+  # rgb_state_topic: '/lights/pantry/color'
+  # rgb_command_topic: '/lights/pantry/color'
+  # rgb: true
+  # optimistic: false
+- name: Pantry_Lights
+  platform: mqtt
+  state_topic: /lights/pantry/relay/0
+  command_topic: /lights/pantry/relay/0/set
   payload_on: 1
   payload_off: 0
-  rgb_state_topic: '/lights/pantry/color'
-  rgb_command_topic: '/lights/pantry/color'
-  rgb: true
-  optimistic: false
+  availability_topic: /lights/pantry/status
+  payload_available: 1
+  payload_not_available: 0
+  brightness_state_topic: /lights/pantry/brightness
+  brightness_command_topic: /lights/pantry/brightness/set
+  rgb_state_topic: /lights/pantry/rgb
+  rgb_command_topic: /lights/pantry/rgb/set
+  color_temp_command_topic: /lights/pantry/mired/set
+  white_value_state_topic: /lights/pantry/channel/3
+  white_value_command_topic: /lights/pantry/channel/3/set
 
 - platform: mqtt
   name: 'Pole Lamp'
@@ -53,27 +69,27 @@
   payload_off: 0
   rgb_state_topic: '/light/pole/rgb'
   rgb_command_topic: '/light/pole/rgb/set'
-  rgb: true
+  # rgb: true
   optimistic: false
 
-- platform: mqtt
-  name: 'Namaste Light'
-  state_topic: 'lamp/namaste/relay/0'
-  command_topic: 'lamp/namaste/relay/0/set'
-  payload_on: 1
-  payload_off: 0
-  rgb_state_topic: 'lamp/namaste/light/color'
-  rgb_command_topic: 'lamp/namaste/color/set'
-  rgb: true
-  optimistic: false
-  color_temp: false
-  color_temp_command_topic: '/lamp/namaste/mired/set'
-  brightness: true
-  brightness_scale: 255
-  brightness_command_topic:  'lamp/namaste/brightness/set'
-  brightness_state_topic: 'lamp/namaste/brightness'
-  white_value: false
-  white_value_command_topic: 'lamp/namaste/channel/3/set'
+# - platform: mqtt
+#   name: 'Namaste Light'
+#   state_topic: 'lamp/namaste/relay/0'
+#   command_topic: 'lamp/namaste/relay/0/set'
+#   payload_on: 1
+#   payload_off: 0
+#   rgb_state_topic: 'lamp/namaste/light/color'
+#   rgb_command_topic: 'lamp/namaste/color/set'
+#   # rgb: true
+#   optimistic: false
+#   # color_temp: false
+#   # color_temp_command_topic: '/lamp/namaste/mired/set'
+#   brightness: true
+#   brightness_scale: 255
+#   brightness_command_topic:  'lamp/namaste/brightness/set'
+#   brightness_state_topic: 'lamp/namaste/brightness'
+#   white_value: false
+#   white_value_command_topic: 'lamp/namaste/channel/3/set'
 
 - platform: mqtt
   name: 'Cabinet Lights 1'

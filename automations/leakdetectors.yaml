@@ -3,7 +3,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.dome_leak_sensor_liquid_detected
+    entity_id: binary_sensor.dome_leak_sensor_liquid_detected_2
     to: 'on'
   action:
   - service: tts.google_say
@@ -20,7 +20,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.master_bathroom_leak_detector_liquid_detected
+    entity_id: binary_sensor.master_bathroom_leak_detector_liquid_detected_2
     to: 'on'
   action:
   - service: tts.google_say
@@ -42,7 +42,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.powder_room_leak_detector_liquid_detected
+    entity_id: binary_sensor.powder_room_leak_detector_liquid_detected_2
     to: 'on'
   action:
   - service: tts.google_say
@@ -59,7 +59,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.clothes_washer_leak_sensor_liquid_detected
+    entity_id: binary_sensor.clothes_washer_leak_sensor_liquid_detected_2
     to: 'on'
   action:
   - service: tts.google_say
@@ -76,7 +76,7 @@
   initial_state: true
   trigger:
   - platform: state
-    entity_id: binary_sensor.dishwasher_leak_sensor_liquid_detected
+    entity_id: binary_sensor.dishwasher_leak_sensor_liquid_detected_2
     to: 'on'
   action:
   - service: tts.google_say

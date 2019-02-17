@@ -2,11 +2,11 @@ turn_on_amp:
   alias: TurnOnAmp
   sequence:
     - service: media_player.turn_on
-      entity_id: media_player.denon_avr 
-      
+      entity_id: media_player.denon_avr
+
     - delay:
-        seconds: 10    
-        
+        seconds: 10
+
     - service: media_player.select_source
       data:
         entity_id: media_player.denon_avr
@@ -14,13 +14,13 @@ turn_on_amp:
 
     - delay:
         seconds: 1
-        
+
     - service: media_player.volume_set
       data:
         entity_id: media_player.denon_avr
-        volume_level: 0.47  
-        
+        volume_level: 0.47
+
     - service: tts.google_say
       data:
         entity_id: media_player.all_speakers
-        message: 'Alexa connect'    
+        message: 'Alexa connect'

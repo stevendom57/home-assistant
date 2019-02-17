@@ -6,11 +6,10 @@
     event: sunset
     offset: '+00:00:00'
   action:
-  action:
     service: light.turn_on
     data:
       brightness: 255
-      rgb_color: [255, 00, 00]
+      rgb_color: [00, 00, 255]
       entity_id: light.addresslight
 
 - id: address_light_off
